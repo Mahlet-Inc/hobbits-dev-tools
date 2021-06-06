@@ -1,0 +1,50 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Conan build",
+            "type": "shell",
+            "command": "conan build ..",
+            "options": {
+                "cwd": "${workspaceFolder}/build-debug"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Conan package",
+            "type": "shell",
+            "command": "conan package ..",
+            "options": {
+                "cwd": "${workspaceFolder}/build-debug"
+            }
+        },
+        {
+            "label": "Conan install",
+            "type": "shell",
+            "command": "conan install .. -s build_type=Debug --build=missing",
+            "options": {
+                "cwd": "${workspaceFolder}/build-debug"
+            }
+        },
+        {
+            "label": "Conan clean",
+            "type": "shell",
+            "command": "rm -rf build-debug; mkdir build-debug",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Conan initialize",
+            "dependsOn": [
+                "Conan clean",
+                "Conan install",
+                "Conan build"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}

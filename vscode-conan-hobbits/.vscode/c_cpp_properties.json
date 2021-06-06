@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+        "name": "Linux",
+        "includePath": [
+            "${workspaceFolder}/src/**",
+            "${workspaceFolder}/build-debug/**",
+            "~/.conan/data/qt/5.15.2/**",
+            "~/.conan/data/fftw/**",
+            "~/.conan/data/libpcap/**"
+        ],
+        "defines": [],
+        "compilerPath": "/usr/bin/gcc",
+        "cStandard": "c11",
+        "cppStandard": "c++11",
+        "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
